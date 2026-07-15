@@ -1,0 +1,8 @@
+node_modules/
+org-concept/node_modules/
+org-concept/dist/
+.env
+.env.local
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,11 @@
+{
+  "name": "innovare-web-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix org-concept run dev",
+    "build": "npm --prefix org-concept run build",
+    "preview": "npm --prefix org-concept run preview",
+    "test": "npm --prefix org-concept run test"
+  }
+}

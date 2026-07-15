@@ -1,0 +1,156 @@
+diff --git a/index.html b/index.html
+index a1b2c3d..e4f5g6h 100644
+--- a/index.html
++++ b/index.html
+@@ -4,7 +4,7 @@
+     <meta charset="UTF-8" />
+     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>org-concept</title>
++    <title>Astriferum Innovare</title>
+   </head>
+   <body>
+     <div id="app"></div>
+diff --git a/src/router/index.js b/src/router/index.js
+index d2e3f4g..h5i6j7k 100644
+--- a/src/router/index.js
++++ b/src/router/index.js
+@@ -21,6 +21,10 @@ const routes = [
+     path: '/contact',
+     name: 'Contact',
+     component: () => import('../views/Contact.vue')
++  },
++  {
++    path: '/:pathMatch(.*)*',
++    redirect: '/'
+   }
+ ]
+ 
+diff --git a/src/style.css b/src/style.css
+index b3c4d5e..f6g7h8i 100644
+--- a/src/style.css
++++ b/src/style.css
+@@ -1,4 +1,4 @@
+-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
++@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+ @import "tailwindcss";
+ 
+ @theme {
+@@ -20,3 +20,32 @@ body {
+ h1, h2, h3, h4, h5, h6 {
+   font-family: 'Playfair Display', serif;
+ }
++
++/* Crumpled Paper Background Texture */
++.paper-texture {
++  position: relative;
++}
++
++.paper-texture::after {
++  content: "";
++  position: absolute;
++  top: 0;
++  left: 0;
++  width: 100%;
++  height: 100%;
++  opacity: 0.04;
++  pointer-events: none;
++  z-index: 99;
++  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='paper-creases'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23ffffff' surfaceScale='2'%3E%3CfeDistantLight azimuth='45' elevation='60'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper-creases)'/%3E%3C/svg%3E");
++}
++
++/* Interactive Sparkles Floating and Hover scaling */
++@keyframes sparkle-float {
++  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.7; }
++  50% { transform: translateY(-8px) scale(1.15) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7)); }
++}
++
++.sparkle-star {
++  animation: sparkle-float 4s ease-in-out infinite;
++  transition: transform 0.4s ease-out, filter 0.4s ease-out, color 0.4s ease-out;
++}
+diff --git a/src/App.vue b/src/App.vue
+index c3d4e5f..g6h7i8j 100644
+--- a/src/App.vue
++++ b/src/App.vue
+@@ -15,7 +15,7 @@ const closeMenu = () => {
+ </script>
+ 
+ <template>
+-  <div class="min-h-screen flex flex-col bg-[#fcfbfa]">
++  <div class="min-h-screen flex flex-col bg-[#fcfbfa] paper-texture">
+     <!-- Header / Navigation -->
+     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+@@ -103,9 +103,10 @@ const closeMenu = () => {
+         <!-- Contact details -->
+         <div class="space-y-4">
+           <h3 class="font-serif text-lg font-semibold text-accent">Contact Details</h3>
+-          <p class="text-sm text-gray-300 font-sans leading-relaxed">
+-            Email: info@innovareconcept.org<br />
+-            Phone: +1 (555) 019-2834<br />
++          <p class="text-sm text-gray-300 font-sans leading-relaxed">
++            Email: <a href="mailto:astriferuminnovare@gmail.com" class="hover:text-accent transition-colors">astriferuminnovare@gmail.com</a><br />
++            Phone: +1 (555) 019-2834<br />
++            Address: 100 Innovation Parkway, Suite 500, CA<br />
++            Facebook: <a href="https://facebook.com/ASTRIFERUMINNOVARE" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors font-medium">ASTRIFERUM INNOVARE</a>
+           </p>
+         </div>
+       </div>
+diff --git a/src/views/Home.vue b/src/views/Home.vue
+index e4f5g6h..i7j8k9l 100644
+--- a/src/views/Home.vue
++++ b/src/views/Home.vue
+@@ -3,6 +3,33 @@
+     <!-- Hero Section with Banner Image -->
+     <div class="max-w-7xl mx-auto px-6 pt-8">
+       <div class="relative overflow-hidden rounded-3xl border border-accent/35 shadow-xl bg-primary">
++        <!-- Interactive SVG Sparkle Stars -->
++        <svg 
++          xmlns="http://www.w3.org/2000/svg" 
++          viewBox="0 0 24 24" 
++          fill="currentColor" 
++          class="absolute w-8 h-8 text-accent/80 sparkle-star cursor-pointer z-20"
++          style="top: 15%; left: 8%; animation-delay: 0s;"
++        >
++          <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
++        </svg>
++        <svg 
++          xmlns="http://www.w3.org/2000/svg" 
++          viewBox="0 0 24 24" 
++          fill="currentColor" 
++          class="absolute w-6 h-6 text-accent/70 sparkle-star cursor-pointer z-20"
++          style="top: 25%; right: 12%; animation-delay: 1.5s;"
++        >
++          <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
++        </svg>
++        <svg 
++          xmlns="http://www.w3.org/2000/svg" 
++          viewBox="0 0 24 24" 
++          fill="currentColor" 
++          class="absolute w-7 h-7 text-accent/75 sparkle-star cursor-pointer z-20"
++          style="bottom: 45%; left: 55%; animation-delay: 0.7s;"
++        >
++          <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
++        </svg>
++
+         <!-- Banner Image Container -->
+         <div class="relative h-64 md:h-96 w-full overflow-hidden">
+           <img 
+diff --git a/src/views/Contact.vue b/src/views/Contact.vue
+index f5g6h7i..j8k9l0m 100644
+--- a/src/views/Contact.vue
++++ b/src/views/Contact.vue
+@@ -154,6 +154,12 @@
+                 +1 (555) 019-2834
+               </a>
+             </p>
++            <p>
++              <span class="font-semibold block text-primary/80">Facebook:</span>
++              <a href="https://facebook.com/ASTRIFERUMINNOVARE" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors font-medium">
++                ASTRIFERUM INNOVARE
++              </a>
++            </p>
+           </div>
+         </div>
+       </div>

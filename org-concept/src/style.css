@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --color-primary: #3b2e5a;
+  --color-accent: #d4af37;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #fcfbfa;
+  color: #1f1f1f;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Crumpled Paper Background Texture */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 99;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='paper-creases'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23ffffff' surfaceScale='2'%3E%3CfeDistantLight azimuth='45' elevation='60'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper-creases)'/%3E%3C/svg%3E");
+}
+
+/* Interactive Sparkles Floating and Hover scaling */
+@keyframes sparkle-float {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-8px) scale(1.15) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7)); }
+}
+
+.sparkle-star {
+  animation: sparkle-float 4s ease-in-out infinite;
+  transition: transform 0.4s ease-out, filter 0.4s ease-out, color 0.4s ease-out;
+}
