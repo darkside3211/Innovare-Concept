@@ -79,7 +79,7 @@ const closeMenu = () => {
         <!-- Brand & Motto -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img :src="logoUrl" alt="Innovare Logo" class="h-10 w-auto brightness-0 invert" />
+            <img :src="logoUrl" alt="Innovare Logo" class="h-10 w-auto" />
             <span class="font-serif text-2xl font-bold tracking-tight">Astriferum Innovare</span>
           </div>
           <p class="font-serif italic text-accent text-lg">"Acta, Non Verba"</p>
