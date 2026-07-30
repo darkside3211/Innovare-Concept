@@ -1,15 +1,83 @@
 <template>
-  <div class="pb-24 bg-[#fbfbfe] text-slate-900 overflow-hidden relative paper-texture">
-    <!-- Ambient background glows -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-100/50 via-cyan-50/30 to-transparent blur-3xl pointer-events-none -z-10"></div>
-    <div class="absolute top-20 right-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow"></div>
-    <div class="absolute top-60 left-10 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
+  <div class="pb-24 bg-[#fbfbfe] text-slate-900 overflow-hidden relative paper-texture min-h-screen">
+    <!-- Full-page Animated Star Constellation Grid & Background Glows -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 w-full h-full">
+      <!-- Ambient Gradient Orbs -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] bg-gradient-to-b from-purple-100/50 via-cyan-50/30 to-transparent blur-3xl pointer-events-none"></div>
+      <div class="absolute top-20 right-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+      <div class="absolute top-[600px] left-10 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" style="animation-delay: 2s;"></div>
+      <div class="absolute top-[1200px] right-20 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" style="animation-delay: 1s;"></div>
+
+      <!-- Constellation SVG Grid Lines Spanning Full Page Height -->
+      <svg class="absolute inset-0 w-full h-full opacity-30 animate-constellation" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.45" />
+            <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.45" />
+          </linearGradient>
+        </defs>
+        <!-- Top to Bottom Interconnected Constellation Paths -->
+        <path d="M 80 120 L 280 60 L 520 180 L 820 90 L 1080 220 L 1320 100" stroke="url(#lineGrad1)" stroke-width="1.5" stroke-dasharray="4 6" fill="none" />
+        <path d="M 180 400 L 420 320 L 680 480 L 920 360 L 1180 500" stroke="url(#lineGrad1)" stroke-width="1.5" stroke-dasharray="3 5" fill="none" />
+        <path d="M 120 750 L 380 880 L 720 780 L 1020 920 L 1280 800" stroke="url(#lineGrad1)" stroke-width="1.5" stroke-dasharray="4 6" fill="none" />
+        <path d="M 100 1150 L 350 1300 L 650 1200 L 950 1350 L 1250 1180" stroke="url(#lineGrad1)" stroke-width="1.5" stroke-dasharray="4 6" fill="none" />
+        <!-- Vertical Connection Lines -->
+        <path d="M 280 60 L 180 400 M 520 180 L 420 320 M 820 90 L 920 360 M 1080 220 L 1180 500" stroke="url(#lineGrad1)" stroke-width="1" stroke-dasharray="2 4" fill="none" />
+        <path d="M 180 400 L 120 750 M 420 320 L 380 880 M 680 480 L 720 780 M 920 360 L 1020 920" stroke="url(#lineGrad1)" stroke-width="1" stroke-dasharray="2 4" fill="none" />
+        <path d="M 120 750 L 100 1150 M 380 880 L 350 1300 M 720 780 L 650 1200 M 1020 920 L 950 1350" stroke="url(#lineGrad1)" stroke-width="1" stroke-dasharray="2 4" fill="none" />
+      </svg>
+
+      <!-- Dense Twinkling Stars Grid (Top to Bottom) -->
+      <!-- Row 1: Top Hero Area -->
+      <div class="absolute top-[40px] left-[5%] w-3 h-3 text-amber-400 animate-twinkle"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[80px] left-[20%] w-4 h-4 text-purple-500 animate-twinkle" style="animation-delay: 0.8s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[120px] left-[40%] w-3 h-3 text-cyan-400 animate-twinkle" style="animation-delay: 1.5s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[60px] left-[62%] w-5 h-5 text-amber-400 animate-twinkle" style="animation-delay: 2.3s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[140px] left-[82%] w-3.5 h-3.5 text-purple-400 animate-twinkle" style="animation-delay: 0.4s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[90px] left-[93%] w-4 h-4 text-cyan-400 animate-twinkle" style="animation-delay: 1.9s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+
+      <!-- Row 2: Mid-Hero Area -->
+      <div class="absolute top-[260px] left-[8%] w-4 h-4 text-cyan-400 animate-twinkle" style="animation-delay: 1.1s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[320px] left-[28%] w-3 h-3 text-amber-400 animate-twinkle" style="animation-delay: 2.7s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[280px] left-[50%] w-4 h-4 text-purple-500 animate-twinkle" style="animation-delay: 0.3s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[340px] left-[74%] w-3.5 h-3.5 text-cyan-400 animate-twinkle" style="animation-delay: 1.7s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[290px] left-[88%] w-3 h-3 text-amber-400 animate-twinkle" style="animation-delay: 2.2s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+
+      <!-- Row 3: Transition to Innovare Standard -->
+      <div class="absolute top-[480px] left-[4%] w-3.5 h-3.5 text-purple-400 animate-twinkle" style="animation-delay: 2.0s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[520px] left-[22%] w-4 h-4 text-cyan-400 animate-twinkle" style="animation-delay: 0.6s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[460px] left-[44%] w-3 h-3 text-amber-400 animate-twinkle" style="animation-delay: 1.4s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[550px] left-[66%] w-5 h-5 text-purple-500 animate-twinkle" style="animation-delay: 2.9s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[510px] left-[85%] w-3 h-3 text-cyan-400 animate-twinkle" style="animation-delay: 1.0s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+
+      <!-- Row 4: Innovare Standard Cards Area -->
+      <div class="absolute top-[700px] left-[10%] w-4 h-4 text-amber-400 animate-twinkle" style="animation-delay: 1.3s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[760px] left-[32%] w-3 h-3 text-purple-400 animate-twinkle" style="animation-delay: 2.4s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[680px] left-[58%] w-4 h-4 text-cyan-400 animate-twinkle" style="animation-delay: 0.5s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[740px] left-[78%] w-3.5 h-3.5 text-amber-400 animate-twinkle" style="animation-delay: 1.8s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[790px] left-[92%] w-4 h-4 text-purple-500 animate-twinkle" style="animation-delay: 2.6s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+
+      <!-- Row 5: Explore Platform Section (Lower Page) -->
+      <div class="absolute top-[920px] left-[6%] w-3 h-3 text-cyan-400 animate-twinkle" style="animation-delay: 0.9s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[980px] left-[25%] w-4 h-4 text-amber-400 animate-twinkle" style="animation-delay: 2.1s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[910px] left-[48%] w-3.5 h-3.5 text-purple-400 animate-twinkle" style="animation-delay: 1.6s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[960px] left-[70%] w-4 h-4 text-cyan-400 animate-twinkle" style="animation-delay: 0.2s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[1020px] left-[88%] w-3 h-3 text-amber-400 animate-twinkle" style="animation-delay: 2.8s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+
+      <!-- Row 6: Bottom Platform Cards & Page End -->
+      <div class="absolute top-[1140px] left-[12%] w-4 h-4 text-purple-500 animate-twinkle" style="animation-delay: 1.4s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[1200px] left-[35%] w-3 h-3 text-cyan-400 animate-twinkle" style="animation-delay: 0.7s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[1160px] left-[55%] w-4 h-4 text-amber-400 animate-twinkle" style="animation-delay: 2.5s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[1220px] left-[75%] w-3.5 h-3.5 text-purple-400 animate-twinkle" style="animation-delay: 1.2s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+      <div class="absolute top-[1180px] left-[94%] w-4 h-4 text-cyan-400 animate-twinkle" style="animation-delay: 2.0s;"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg></div>
+    </div>
 
     <!-- Hidden responsive container for test suite validation: h-64 md:h-96 object-cover -->
     <div class="hidden h-64 md:h-96 object-cover" aria-hidden="true"></div>
 
     <!-- 1. Hero Section (Light, Open, Dynamic) -->
-    <div class="max-w-7xl mx-auto px-6 pt-10 pb-16 md:pt-16 md:pb-24 md:pl-12">
+    <div class="max-w-7xl mx-auto px-6 pt-10 pb-16 md:pt-16 md:pb-24 md:pl-12 relative z-10">
       <div class="relative rounded-3xl border border-purple-200/80 bg-white/70 backdrop-blur-2xl p-8 md:p-16 shadow-xl shadow-purple-900/5 overflow-hidden">
         <!-- Abstract Watermark Crest & Floating Background Elements -->
         <div class="absolute top-1/2 right-4 -translate-y-1/2 opacity-[0.07] pointer-events-none select-none hidden lg:block">
@@ -87,7 +155,7 @@
 
     <!-- Vision & Mission Section Divider -->
     <!-- Vision & Mission -->
-    <div class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-6 py-12 md:py-20 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         
         <!-- Left Side: Section Intro & Large Graphic Stats -->
@@ -190,7 +258,7 @@
     </div>
 
     <!-- 3. 'Explore the Platform' Section (Iterative Enhancements) -->
-    <div class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-6 py-12 md:py-20 relative z-10">
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-xs font-extrabold uppercase tracking-widest text-purple-600 bg-purple-50 border border-purple-200 px-3.5 py-1.5 rounded-full inline-block mb-3">
           Discover & Get Involved
@@ -263,5 +331,6 @@
 import logoUrl from '../assets/logo.png'
 import bannerUrl from '../assets/banner.png'
 </script>
+
 
 
