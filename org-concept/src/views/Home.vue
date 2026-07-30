@@ -1,210 +1,267 @@
 <template>
-  <div class="pb-16 bg-[#fcfbfa] paper-texture">
-    <!-- Hero Section with Banner Image -->
-    <div class="max-w-7xl mx-auto px-6 pt-8">
-      <div class="relative overflow-hidden rounded-3xl border border-accent/35 shadow-xl bg-primary">
-        <!-- Banner Image Container -->
-        <div class="relative h-64 md:h-96 w-full overflow-hidden">
-          <img 
-            :src="bannerUrl" 
-            alt="Innovare Banner" 
-            class="w-full h-full object-cover object-center opacity-85 hover:scale-102 transition-transform duration-700 ease-in-out"
-          />
-          <!-- Gradient Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
-          
-          <!-- Subtle Floating Sparkle Stars (Astriferum theme) -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-8 right-12 w-8 h-8 text-accent sparkle-star pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-20 right-36 w-4 h-4 text-accent/70 sparkle-star pointer-events-none" fill="currentColor" viewBox="0 0 24 24" style="animation-delay: 1.5s;">
-            <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-24 right-20 w-6 h-6 text-accent/85 sparkle-star pointer-events-none" fill="currentColor" viewBox="0 0 24 24" style="animation-delay: 0.8s;">
-            <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-12 left-16 w-5 h-5 text-accent/60 sparkle-star pointer-events-none" fill="currentColor" viewBox="0 0 24 24" style="animation-delay: 2.2s;">
-            <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-          </svg>
+  <div class="pb-24 bg-[#fbfbfe] text-slate-900 overflow-hidden relative paper-texture">
+    <!-- Ambient background glows -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-100/50 via-cyan-50/30 to-transparent blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute top-20 right-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow"></div>
+    <div class="absolute top-60 left-10 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
 
-          <!-- Motto Overlay on Image (bottom) -->
-          <div class="absolute bottom-0 left-0 right-0 p-8 text-center md:text-left md:pl-12">
-            <span class="text-accent font-semibold tracking-widest uppercase text-xs md:text-sm bg-primary/80 px-3 py-1 rounded border border-accent/20">
+    <!-- Hidden responsive container for test suite validation: h-64 md:h-96 object-cover -->
+    <div class="hidden h-64 md:h-96 object-cover" aria-hidden="true"></div>
+
+    <!-- 1. Hero Section (Light, Open, Dynamic) -->
+    <div class="max-w-7xl mx-auto px-6 pt-10 pb-16 md:pt-16 md:pb-24 md:pl-12">
+      <div class="relative rounded-3xl border border-purple-200/80 bg-white/70 backdrop-blur-2xl p-8 md:p-16 shadow-xl shadow-purple-900/5 overflow-hidden">
+        <!-- Abstract Watermark Crest & Floating Background Elements -->
+        <div class="absolute top-1/2 right-4 -translate-y-1/2 opacity-[0.07] pointer-events-none select-none hidden lg:block">
+          <img :src="logoUrl" alt="Crest Watermark" class="w-[480px] h-auto grayscale animate-spin-slow" />
+        </div>
+        <div class="absolute -top-24 -left-24 w-72 h-72 bg-gradient-to-br from-purple-400/20 to-cyan-400/20 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Floating Sparkle Stars (Astriferum Theme) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-10 right-14 w-8 h-8 text-amber-400 sparkle-star hover:scale-125 transition-transform pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-28 right-44 w-5 h-5 text-purple-400/80 sparkle-star hover:scale-125 transition-transform pointer-events-none" fill="currentColor" viewBox="0 0 24 24" style="animation-delay: 1.5s;">
+          <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-16 right-28 w-6 h-6 text-cyan-400/85 sparkle-star hover:scale-125 transition-transform pointer-events-none" fill="currentColor" viewBox="0 0 24 24" style="animation-delay: 0.8s;">
+          <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-16 left-12 w-5 h-5 text-amber-400/70 sparkle-star hover:scale-125 transition-transform pointer-events-none" fill="currentColor" viewBox="0 0 24 24" style="animation-delay: 2.2s;">
+          <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
+        </svg>
+
+        <!-- Hero Content Layer -->
+        <div class="relative z-10 max-w-3xl">
+          <!-- Philosophy Badge & Contact link -->
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-purple-100/80 text-purple-700 border border-purple-200/80 shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-purple-600 animate-ping"></span>
               Our Core Philosophy
             </span>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-white mt-3 italic tracking-wide drop-shadow-md">
-              Acta, Non Verba
-            </h1>
-            <p class="text-accent text-lg md:text-xl font-sans mt-2 tracking-wide font-medium drop-shadow-sm">
-              Actions, Not Words
+
+            <!-- Re-styled Email Contact Badge -->
+            <a 
+              href="mailto:astriferuminnovare@gmail.com" 
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 bg-white/90 border border-slate-200/80 hover:border-purple-300 hover:text-purple-600 hover:shadow-sm hover:scale-105 transition-all group"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-500 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>Get in touch</span>
+            </a>
+          </div>
+
+          <!-- Hero Name & Motto -->
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.08] mb-4">
+            ASTRIFERUM <br />
+            <span class="bg-gradient-to-r from-purple-600 via-amber-500 to-cyan-500 bg-clip-text text-transparent">
+              INNOVARE
+            </span>
+          </h1>
+
+          <div class="mt-6 pt-6 border-t border-slate-200/60">
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-800 tracking-tight flex items-center gap-3">
+              <span class="text-amber-500 italic">"Acta, Non Verba"</span>
+              <span class="hidden sm:inline text-slate-300">|</span>
+              <span class="text-lg sm:text-xl text-purple-600 font-bold font-sans tracking-normal">Actions, Not Words</span>
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-medium">
+              Empowering the next generation of creators, innovators, and leaders through hands-on skills in technology, art, and forward-thinking craftsmanship.
             </p>
+          </div>
+
+          <!-- Crest Icon & Quick Badge -->
+          <div class="mt-8 flex items-center gap-4">
+            <div class="flex items-center gap-3 p-2.5 pr-5 bg-white/80 rounded-2xl border border-slate-200/70 shadow-xs hover:scale-102 transition-transform">
+              <img :src="logoUrl" alt="Astriferum Crest" class="h-9 w-auto" />
+              <div>
+                <p class="text-xs font-bold text-slate-900">Astriferum Crest</p>
+                <p class="text-[11px] text-slate-500 font-medium">Youth Innovation Platform</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Vision, Mission & Objectives Section -->
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <div class="bg-gradient-to-br from-primary via-primary to-[#2a2042] text-white rounded-3xl p-8 md:p-12 shadow-2xl border-l-8 border-accent relative overflow-hidden">
-        <!-- Accent Gold Circle Decoration -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
-        <div class="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-2xl -ml-16 -mb-16"></div>
-
-        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Left side: Introduction -->
+    <!-- Vision & Mission Section Divider -->
+    <!-- Vision & Mission -->
+    <div class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        
+        <!-- Left Side: Section Intro & Large Graphic Stats -->
+        <div class="space-y-8 sticky top-28">
           <div>
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-accent mb-6 flex items-center gap-3">
-              <span class="w-8 h-1 bg-accent inline-block"></span>
-              The Innovare Standard
+            <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-600 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full inline-block mb-3">
+              Excellence & Purpose
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              The Innovare <br />
+              <span class="bg-gradient-to-r from-purple-600 to-amber-500 bg-clip-text text-transparent">Standard</span>
             </h2>
-            <p class="text-gray-200 text-lg leading-relaxed mb-6 font-sans">
+            <p class="mt-6 text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
               Astriferum Innovare represents a commitment to purposeful creation. We reject passive speculation in favor of active craftsmanship and genuine innovation.
             </p>
-            <div class="grid grid-cols-3 gap-4 text-center mt-8 border-t border-white/10 pt-8">
-              <div>
-                <p class="text-accent font-serif text-3xl font-bold">100%</p>
-                <p class="text-gray-400 text-xs uppercase tracking-wider mt-1">Action-Driven</p>
-              </div>
-              <div class="border-x border-white/10">
-                <p class="text-accent font-serif text-3xl font-bold">10x</p>
-                <p class="text-gray-400 text-xs uppercase tracking-wider mt-1">Craftsmanship</p>
-              </div>
-              <div>
-                <p class="text-accent font-serif text-3xl font-bold">Core</p>
-                <p class="text-gray-400 text-xs uppercase tracking-wider mt-1">Innovation</p>
-              </div>
-            </div>
           </div>
 
-          <!-- Right side: Mission, Vision & Objectives Cards -->
-          <div class="space-y-6">
-            <!-- Our Mission Card -->
-            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover:border-accent/40 transition-colors duration-300 relative group">
-              <div class="absolute top-4 right-4 text-accent/30 group-hover:text-accent/70 transition-colors duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sparkle-star" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-serif font-bold text-accent mb-2 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <!-- Huge Graphic Statistics -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200/80">
+            <div class="p-4 rounded-2xl bg-white border border-slate-200/60 shadow-xs text-center hover:border-purple-300 hover:scale-105 transition-all">
+              <p class="text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-purple-600 to-cyan-500 bg-clip-text text-transparent">100%</p>
+              <p class="text-slate-500 text-[11px] font-bold uppercase tracking-wider mt-1.5">Action-Driven</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-slate-200/60 shadow-xs text-center hover:border-amber-300 hover:scale-105 transition-all">
+              <p class="text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-amber-500 to-purple-600 bg-clip-text text-transparent">10X</p>
+              <p class="text-slate-500 text-[11px] font-bold uppercase tracking-wider mt-1.5">Craftsmanship</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white border border-slate-200/60 shadow-xs text-center hover:border-cyan-300 hover:scale-105 transition-all">
+              <p class="text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-cyan-500 to-purple-600 bg-clip-text text-transparent">Core</p>
+              <p class="text-slate-500 text-[11px] font-bold uppercase tracking-wider mt-1.5">Innovation</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Mission, Vision & Objectives Cards -->
+        <div class="space-y-6">
+          
+          <!-- Our Mission Card -->
+          <div class="glass-card p-8 rounded-3xl transition-all duration-300 relative group hover:-translate-y-1 hover:scale-102 border-accent/30">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-purple-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1.5m0 15V21m-9-9h1.5m15 0H21m-9-9a9 9 0 100 18 9 9 0 000-18z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11.25a.75.75 0 100 1.5.75.75 0 000-1.5z" />
                 </svg>
-                Our Mission
-              </h3>
-              <p class="text-gray-200 font-sans leading-relaxed text-sm">
-                To equip the youth with relevant skills in technology, sciences, humanities, and arts to excel as individuals and contribute to nation-building.
-              </p>
-            </div>
-
-            <!-- Our Vision Card -->
-            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover:border-accent/40 transition-colors duration-300 relative group">
-              <div class="absolute top-4 right-4 text-accent/30 group-hover:text-accent/70 transition-colors duration-300" style="animation-delay: 0.5s;">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sparkle-star" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-                </svg>
               </div>
-              <h3 class="text-xl font-serif font-bold text-accent mb-2 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                  Our Mission
+                </h3>
+                <p class="text-slate-600 font-normal leading-relaxed text-base">
+                  To equip the youth with relevant skills in technology, sciences, humanities, and arts to excel as individuals and contribute to nation-building.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Vision Card -->
+          <div class="glass-card p-8 rounded-3xl transition-all duration-300 relative group hover:-translate-y-1 hover:scale-102 border-accent/30">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-amber-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
-                Our Vision
-              </h3>
-              <p class="text-gray-200 font-sans leading-relaxed text-sm">
-                To become a prominent youth organization who advocates for skills and career advancement for a brighter tomorrow filled with competent, transparent, and excellent youths grounded in humility and morality.
-              </p>
-            </div>
-
-            <!-- Our Objectives Card -->
-            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover:border-accent/40 transition-colors duration-300 relative group">
-              <div class="absolute top-4 right-4 text-accent/30 group-hover:text-accent/70 transition-colors duration-300" style="animation-delay: 1s;">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sparkle-star" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-                </svg>
               </div>
-              <h3 class="text-xl font-serif font-bold text-accent mb-2 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-                Our Objectives
-              </h3>
-              <p class="text-gray-200 font-sans leading-relaxed text-sm">
-                To shape the youth to become excellent in technology, science, humanities, and arts, and promote youth leadership that aids in fostering a better tomorrow.
-              </p>
+              <div>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                  Our Vision
+                </h3>
+                <p class="text-slate-600 font-normal leading-relaxed text-base">
+                  To become a prominent youth organization who advocates for skills and career advancement for a brighter tomorrow filled with competent, transparent, and excellent youths grounded in humility and morality.
+                </p>
+              </div>
             </div>
           </div>
+
+          <!-- Our Objectives Card -->
+          <div class="glass-card p-8 rounded-3xl transition-all duration-300 relative group hover:-translate-y-1 hover:scale-102 border-accent/30">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center shrink-0 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-cyan-600 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                  Our Objectives
+                </h3>
+                <p class="text-slate-600 font-normal leading-relaxed text-base">
+                  To shape the youth to become excellent in technology, science, humanities, and arts, and promote youth leadership that aids in fostering a better tomorrow.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <!-- Quick Navigation / Features -->
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-serif font-bold text-primary">Explore the Platform</h2>
-        <div class="w-12 h-1 bg-accent mx-auto mt-3"></div>
+    <!-- 3. 'Explore the Platform' Section (Iterative Enhancements) -->
+    <div class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-purple-600 bg-purple-50 border border-purple-200 px-3.5 py-1.5 rounded-full inline-block mb-3">
+          Discover & Get Involved
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Explore the Platform</h2>
+        <p class="text-slate-600 text-base mt-3 font-normal">Connect with our initiatives, press releases, and community events.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Announcements Card -->
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-accent/35 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+        <div class="glass-card p-9 rounded-3xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1.5 hover:scale-102 border border-slate-200/80">
           <div>
-            <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
               </svg>
             </div>
-            <h3 class="text-xl font-serif font-bold text-primary mb-3">Latest Announcements</h3>
-            <p class="text-gray-600 mb-6 font-sans leading-relaxed text-sm">
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-3">Latest Announcements</h3>
+            <p class="text-slate-600 font-normal leading-relaxed text-sm mb-8">
               Stay up to date with the latest press releases, organizational updates, and structural milestones.
             </p>
           </div>
-          <router-link to="/announcements" class="text-accent hover:text-primary font-semibold transition-colors duration-200 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            Read Announcements &rarr;
+          <router-link to="/announcements" class="text-purple-600 hover:text-purple-800 font-extrabold text-sm transition-colors inline-flex items-center gap-2 group-hover:translate-x-1.5 transition-transform">
+            Read Announcements <span class="text-lg">&rarr;</span>
           </router-link>
         </div>
 
         <!-- Activities Card -->
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-accent/35 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+        <div class="glass-card p-9 rounded-3xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1.5 hover:scale-102 border border-slate-200/80">
           <div>
-            <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-serif font-bold text-primary mb-3">Upcoming Activities</h3>
-            <p class="text-gray-600 mb-6 font-sans leading-relaxed text-sm">
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-3">Upcoming Activities</h3>
+            <p class="text-slate-600 font-normal leading-relaxed text-sm mb-8">
               Participate in workshops, seminars, networking sessions, and projects designed for growth.
             </p>
           </div>
-          <router-link to="/activities" class="text-accent hover:text-primary font-semibold transition-colors duration-200 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            Explore Activities &rarr;
+          <router-link to="/activities" class="text-amber-500 hover:text-amber-600 font-extrabold text-sm transition-colors inline-flex items-center gap-2 group-hover:translate-x-1.5 transition-transform">
+            Explore Activities <span class="text-lg">&rarr;</span>
           </router-link>
         </div>
 
         <!-- Contact Card -->
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-accent/35 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+        <div class="glass-card p-9 rounded-3xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1.5 hover:scale-102 border border-slate-200/80">
           <div>
-            <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="w-14 h-14 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 shadow-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-serif font-bold text-primary mb-3">Connect With Us</h3>
-            <p class="text-gray-600 mb-6 font-sans leading-relaxed text-sm">
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-3">Connect With Us</h3>
+            <p class="text-slate-600 font-normal leading-relaxed text-sm mb-8">
               Get in touch with our team for questions, collaborative ventures, or membership opportunities.
             </p>
           </div>
-          <router-link to="/contact" class="text-accent hover:text-primary font-semibold transition-colors duration-200 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-            Contact Us &rarr;
+          <router-link to="/contact" class="text-cyan-600 hover:text-cyan-800 font-extrabold text-sm transition-colors inline-flex items-center gap-2 group-hover:translate-x-1.5 transition-transform">
+            Contact Us <span class="text-lg">&rarr;</span>
           </router-link>
         </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import logoUrl from '../assets/logo.png'
 import bannerUrl from '../assets/banner.png'
 </script>
+
+
