@@ -6,3 +6,4 @@ org-concept/dist/
 .vscode/
 .idea/
 .DS_Store
+.agents/

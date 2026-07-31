@@ -88,7 +88,7 @@ const activities = ref([
     date: 'July 25, 2026',
     type: 'Upcoming',
     description: 'Join industry leaders in a panel discussion covering AI integrations in collaborative software design, highlighting trends for the next five years.',
-    location: 'Silicon Valley Headquarters / Virtual'
+    location: 'Virtual / Discord'
   },
   {
     id: 2,
@@ -96,7 +96,7 @@ const activities = ref([
     date: 'August 12, 2026',
     type: 'Upcoming',
     description: 'A hands-on technical workshop focused on building maintainable layouts, custom typography systems, and components utilizing Tailwind CSS.',
-    location: 'Innovation Lab / Zoom'
+    location: 'Zoom Meeting / Online'
   },
   {
     id: 3,
@@ -104,7 +104,7 @@ const activities = ref([
     date: 'May 14, 2026',
     type: 'Past',
     description: 'A 48-hour design and coding marathon where members built prototype decentralized communication modules. Winners were awarded the Innovation Grant.',
-    location: 'Downtown Tech Hub'
+    location: 'Virtual Stage / Online Event'
   },
   {
     id: 4,
@@ -112,7 +112,7 @@ const activities = ref([
     date: 'April 02, 2026',
     type: 'Past',
     description: 'The inaugural meet-up where the charter of Astriferum Innovare was signed, the core board was elected, and the roadmap for 2026 was ratified.',
-    location: 'Grand Hall, Suite 500'
+    location: 'Online / Live Stream'
   }
 ])
 

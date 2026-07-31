@@ -117,27 +117,11 @@
 
       <!-- Info Details -->
       <div class="space-y-6">
-        <!-- Address Card -->
-        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-accent/25 transition-colors duration-300">
-          <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-serif font-bold text-primary mb-3">Official Headquarters</h3>
-          <p class="text-gray-600 font-sans leading-relaxed text-sm">
-            Astriferum Innovare Headquarters<br />
-            100 Innovation Parkway<br />
-            Suite 500<br />
-            Silicon Valley, CA 94025
-          </p>
-        </div>
-
         <!-- Direct Contact Card -->
         <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-accent/25 transition-colors duration-300">
           <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-5">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
           </div>
           <h3 class="text-xl font-serif font-bold text-primary mb-3">Direct Channels</h3>
@@ -150,14 +134,8 @@
             </p>
             <p>
               <span class="font-semibold block text-primary/80">Facebook:</span>
-              <a href="#" class="hover:text-accent transition-colors font-medium">
+              <a href="https://www.facebook.com/profile.php?id=61591812560569" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors font-medium">
                 ASTRIFERUM INNOVARE
-              </a>
-            </p>
-            <p>
-              <span class="font-semibold block text-primary/80">Phone:</span>
-              <a href="tel:+15550192834" class="hover:text-accent transition-colors font-medium">
-                +1 (555) 019-2834
               </a>
             </p>
           </div>

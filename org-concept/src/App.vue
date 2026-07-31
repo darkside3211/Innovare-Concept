@@ -147,12 +147,9 @@ const closeMenu = () => {
             </p>
             <p class="flex items-center gap-2">
               <span class="font-semibold text-slate-800">Facebook:</span>
-              <a href="https://facebook.com/ASTRIFERUMINNOVARE" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-800 font-semibold transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61591812560569" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-800 font-semibold transition-colors">
                 ASTRIFERUM INNOVARE
               </a>
-            </p>
-            <p>
-              <span class="font-semibold text-slate-800">Address:</span> 100 Innovation Parkway, Suite 500, CA
             </p>
           </div>
         </div>
