@@ -15,36 +15,65 @@ const closeMenu = () => {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-[#fcfbfa] paper-texture">
+  <div class="min-h-screen flex flex-col bg-[#fbfbfe] text-slate-900 selection:bg-purple-500 selection:text-white">
     <!-- Header / Navigation -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-slate-100/80 shadow-xs transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <!-- Logo -->
-        <router-link to="/" class="flex items-center gap-3 group" @click="closeMenu">
-          <img :src="logoUrl" alt="Innovare Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
-          <span class="font-serif text-2xl font-bold text-primary tracking-tight">Astriferum Innovare</span>
+        <!-- Logo Text & Crest -->
+        <router-link to="/" class="flex items-center gap-3.5 group" @click="closeMenu">
+          <div class="relative flex items-center justify-center">
+            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 via-amber-500 to-cyan-500 rounded-full blur-xs opacity-0 group-hover:opacity-70 transition duration-500"></div>
+            <img :src="logoUrl" alt="Innovare Logo" class="relative h-11 w-auto transition-transform duration-300 group-hover:scale-105" />
+          </div>
+          <span class="font-extrabold text-2xl tracking-tight text-slate-900 group-hover:text-purple-600 transition-colors duration-200">
+            Astriferum Innovare
+          </span>
         </router-link>
 
         <!-- Desktop Nav Links -->
-        <nav class="hidden md:flex items-center gap-8">
-          <router-link to="/" class="text-sm font-semibold tracking-wide uppercase transition-colors duration-200" :class="$route.path === '/' ? 'text-accent border-b-2 border-accent pb-1' : 'text-primary/80 hover:text-accent'">Home</router-link>
-          <router-link to="/announcements" class="text-sm font-semibold tracking-wide uppercase transition-colors duration-200" :class="$route.path.startsWith('/announcements') ? 'text-accent border-b-2 border-accent pb-1' : 'text-primary/80 hover:text-accent'">Announcements</router-link>
-          <router-link to="/activities" class="text-sm font-semibold tracking-wide uppercase transition-colors duration-200" :class="$route.path.startsWith('/activities') ? 'text-accent border-b-2 border-accent pb-1' : 'text-primary/80 hover:text-accent'">Activities</router-link>
-          <router-link to="/contact" class="text-sm font-semibold tracking-wide uppercase transition-colors duration-200" :class="$route.path.startsWith('/contact') ? 'text-accent border-b-2 border-accent pb-1' : 'text-primary/80 hover:text-accent'">Contact</router-link>
+        <nav class="hidden md:flex items-center gap-2 bg-slate-100/60 p-1.5 rounded-full border border-slate-200/50">
+          <router-link 
+            to="/" 
+            class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200" 
+            :class="$route.path === '/' ? 'bg-white text-purple-600 shadow-sm border border-purple-100' : 'text-slate-600 hover:text-purple-600 hover:bg-white/50'"
+          >
+            Home
+          </router-link>
+          <router-link 
+            to="/announcements" 
+            class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200" 
+            :class="$route.path.startsWith('/announcements') ? 'bg-white text-purple-600 shadow-sm border border-purple-100' : 'text-slate-600 hover:text-purple-600 hover:bg-white/50'"
+          >
+            Announcements
+          </router-link>
+          <router-link 
+            to="/activities" 
+            class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200" 
+            :class="$route.path.startsWith('/activities') ? 'bg-white text-purple-600 shadow-sm border border-purple-100' : 'text-slate-600 hover:text-purple-600 hover:bg-white/50'"
+          >
+            Activities
+          </router-link>
+          <router-link 
+            to="/contact" 
+            class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200" 
+            :class="$route.path.startsWith('/contact') ? 'bg-white text-purple-600 shadow-sm border border-purple-100' : 'text-slate-600 hover:text-purple-600 hover:bg-white/50'"
+          >
+            Contact
+          </router-link>
         </nav>
 
         <!-- Mobile Menu Toggle Button -->
-        <button @click="toggleMenu" class="md:hidden p-2 text-primary focus:outline-none cursor-pointer" aria-label="Toggle Menu">
+        <button @click="toggleMenu" class="md:hidden p-2.5 rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 focus:outline-none cursor-pointer transition-colors" aria-label="Toggle Menu">
           <svg v-if="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
           <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <!-- Mobile Nav Menu with slide down transition -->
+      <!-- Mobile Nav Menu -->
       <transition
         enter-active-class="transition duration-200 ease-out"
         enter-from-class="transform -translate-y-4 opacity-0"
@@ -53,12 +82,12 @@ const closeMenu = () => {
         leave-from-class="transform translate-y-0 opacity-100"
         leave-to-class="transform -translate-y-4 opacity-0"
       >
-        <div v-if="isMenuOpen" class="md:hidden bg-white border-b border-gray-100 shadow-lg px-6 py-4 absolute w-full left-0">
-          <nav class="flex flex-col gap-4">
-            <router-link to="/" class="text-base font-semibold uppercase transition-colors duration-200 py-1" :class="$route.path === '/' ? 'text-accent' : 'text-primary/80 hover:text-accent'" @click="closeMenu">Home</router-link>
-            <router-link to="/announcements" class="text-base font-semibold uppercase transition-colors duration-200 py-1" :class="$route.path.startsWith('/announcements') ? 'text-accent' : 'text-primary/80 hover:text-accent'" @click="closeMenu">Announcements</router-link>
-            <router-link to="/activities" class="text-base font-semibold uppercase transition-colors duration-200 py-1" :class="$route.path.startsWith('/activities') ? 'text-accent' : 'text-primary/80 hover:text-accent'" @click="closeMenu">Activities</router-link>
-            <router-link to="/contact" class="text-base font-semibold uppercase transition-colors duration-200 py-1" :class="$route.path.startsWith('/contact') ? 'text-accent' : 'text-primary/80 hover:text-accent'" @click="closeMenu">Contact</router-link>
+        <div v-if="isMenuOpen" class="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl px-6 py-6 absolute w-full left-0">
+          <nav class="flex flex-col gap-3">
+            <router-link to="/" class="px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all" :class="$route.path === '/' ? 'bg-purple-50 text-purple-600 font-extrabold' : 'text-slate-700 hover:bg-slate-50'" @click="closeMenu">Home</router-link>
+            <router-link to="/announcements" class="px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all" :class="$route.path.startsWith('/announcements') ? 'bg-purple-50 text-purple-600 font-extrabold' : 'text-slate-700 hover:bg-slate-50'" @click="closeMenu">Announcements</router-link>
+            <router-link to="/activities" class="px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all" :class="$route.path.startsWith('/activities') ? 'bg-purple-50 text-purple-600 font-extrabold' : 'text-slate-700 hover:bg-slate-50'" @click="closeMenu">Activities</router-link>
+            <router-link to="/contact" class="px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all" :class="$route.path.startsWith('/contact') ? 'bg-purple-50 text-purple-600 font-extrabold' : 'text-slate-700 hover:bg-slate-50'" @click="closeMenu">Contact</router-link>
           </nav>
         </div>
       </transition>
@@ -73,49 +102,65 @@ const closeMenu = () => {
       </router-view>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-primary text-white border-t border-primary/20 pt-16 pb-8">
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <!-- Light modern Footer -->
+    <footer class="bg-white text-slate-700 border-t border-slate-200/70 pt-16 pb-10 relative overflow-hidden">
+      <!-- Ambient light background glow -->
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none -mr-20 -mb-20"></div>
+      <div class="absolute top-0 left-1/4 w-80 h-80 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none -mt-20"></div>
+
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 relative z-10">
         <!-- Brand & Motto -->
         <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <img :src="logoUrl" alt="Innovare Logo" class="h-10 w-auto brightness-0 invert" />
-            <span class="font-serif text-2xl font-bold tracking-tight">Astriferum Innovare</span>
+            <img :src="logoUrl" alt="Innovare Logo" class="h-10 w-auto" />
+            <span class="font-extrabold text-2xl text-slate-900 tracking-tight">Astriferum Innovare</span>
           </div>
-          <p class="font-serif italic text-accent text-lg">"Acta, Non Verba"</p>
-          <p class="text-gray-300 text-sm max-w-sm font-sans leading-relaxed">
+          <p class="font-bold text-amber-500 tracking-wider text-base uppercase flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+            "Acta, Non Verba"
+          </p>
+          <p class="text-slate-600 text-sm max-w-sm leading-relaxed font-normal">
             Leading by example and actions. We develop frameworks and spaces that empower individuals and organizations.
           </p>
         </div>
 
         <!-- Quick Links -->
         <div class="space-y-4">
-          <h3 class="font-serif text-lg font-semibold text-accent">Quick Links</h3>
-          <ul class="space-y-2 text-sm text-gray-300 font-sans">
-            <li><router-link to="/" class="hover:text-white transition-colors">Home</router-link></li>
-            <li><router-link to="/announcements" class="hover:text-white transition-colors">Announcements</router-link></li>
-            <li><router-link to="/activities" class="hover:text-white transition-colors">Activities</router-link></li>
-            <li><router-link to="/contact" class="hover:text-white transition-colors">Contact</router-link></li>
+          <h3 class="font-bold text-base text-slate-900 tracking-wide">Quick Links</h3>
+          <ul class="space-y-3 text-sm text-slate-600 font-medium">
+            <li><router-link to="/" class="hover:text-purple-600 transition-colors inline-flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-purple-600 transition-colors"></span>Home</router-link></li>
+            <li><router-link to="/announcements" class="hover:text-purple-600 transition-colors inline-flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-purple-600 transition-colors"></span>Announcements</router-link></li>
+            <li><router-link to="/activities" class="hover:text-purple-600 transition-colors inline-flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-purple-600 transition-colors"></span>Activities</router-link></li>
+            <li><router-link to="/contact" class="hover:text-purple-600 transition-colors inline-flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-purple-600 transition-colors"></span>Contact</router-link></li>
           </ul>
         </div>
 
         <!-- Contact details -->
         <div class="space-y-4">
-          <h3 class="font-serif text-lg font-semibold text-accent">Contact Details</h3>
-          <p class="text-sm text-gray-300 font-sans leading-relaxed">
-            Email: <a href="mailto:astriferuminnovare@gmail.com" class="hover:text-accent transition-colors">astriferuminnovare@gmail.com</a><br />
-            Facebook: <a href="#" class="hover:text-accent transition-colors font-medium">ASTRIFERUM INNOVARE</a><br />
-            Address: 100 Innovation Parkway, Suite 500, CA
-          </p>
+          <h3 class="font-bold text-base text-slate-900 tracking-wide">Contact Details</h3>
+          <div class="space-y-3 text-sm text-slate-600 leading-relaxed font-normal">
+            <p class="flex items-center gap-2">
+              <span class="font-semibold text-slate-800">Email:</span>
+              <a href="mailto:astriferuminnovare@gmail.com" class="text-purple-600 hover:text-purple-800 font-medium underline underline-offset-4 decoration-purple-200 hover:decoration-purple-600 transition-colors">
+                astriferuminnovare@gmail.com
+              </a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="font-semibold text-slate-800">Facebook:</span>
+              <a href="https://www.facebook.com/profile.php?id=61591812560569" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-800 font-semibold transition-colors">
+                ASTRIFERUM INNOVARE
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Copyright -->
-      <div class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 font-sans gap-4">
+      <div class="max-w-7xl mx-auto px-6 border-t border-slate-200/80 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 font-medium gap-4 relative z-10">
         <p>&copy; 2026 Astriferum Innovare. All rights reserved.</p>
         <div class="flex gap-6">
-          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-purple-600 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-purple-600 transition-colors">Terms of Service</a>
         </div>
       </div>
     </footer>
