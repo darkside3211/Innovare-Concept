@@ -78,6 +78,8 @@
                 type="email" 
                 v-model="formData.email" 
                 required 
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                title="Please enter a valid email address with a domain (e.g. name@example.com)"
                 placeholder="you@example.com" 
                 class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-sans text-sm transition-all"
               />
@@ -159,6 +161,10 @@ const formData = ref({
 })
 
 const handleSubmit = () => {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  if (!emailPattern.test(formData.value.email)) {
+    return
+  }
   // Simulate successful submission
   submitted.value = true
 }
